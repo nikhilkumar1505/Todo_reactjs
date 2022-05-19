@@ -1,12 +1,16 @@
 import React from "react";
 import "./app.css";
-import Todo from "./Todo";
+import RandomUser from "./RandomUser";
+
+import { Rootprovider } from "./services/RootContext";
 
 function App() {
   return (
-    <div className="main">
-     <Todo/>
-    </div>
+    <Rootprovider>
+      <div className="main">
+        <RandomUser />
+      </div>
+    </Rootprovider>
   );
 }
 
