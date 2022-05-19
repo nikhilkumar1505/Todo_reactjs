@@ -18,7 +18,7 @@ function ProfileCard() {
             />
             <div className="details-section">
               <p>{`${name?.title} ${name?.first} ${name?.last}`}</p>
-              <p>{`Email: ${email}`}</p>
+              <p>{email}</p>
             </div>
           </div>
         );
