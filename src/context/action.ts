@@ -17,7 +17,7 @@ const actions = (dispatch: any) => {
   const changeGender = (gender: string) =>
     dispatch({ type: ActionTypes.CHANGE_GENDER, payload: gender });
   const changeNationality = (nat: string) =>
-    dispatch({ type: ActionTypes.CHANGE_GENDER, payload: nat });
+    dispatch({ type: ActionTypes.CHANGE_NATIONALITY, payload: nat });
   return { getUser, changeGender, changeNationality };
 };
 
