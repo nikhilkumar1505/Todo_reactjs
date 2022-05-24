@@ -1,15 +1,15 @@
 import React, { useContext, useEffect } from "react";
 import { RadioButtons, Dropdown, ProfileCard } from "./components";
-import { ApiService } from "./services/Api.services";
 import { RootContext } from "./services/RootContext";
+import { useAppDispatch } from "../src/hooks";
+import { getRandomUser } from "./redux/actions";
 
 function RandomUser() {
-  const { gender, nat, setProfile } = useContext(RootContext);
+  const { gender, nat } = useContext(RootContext);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    ApiService.getDetails(gender, nat).then((res: any) =>
-      setProfile(res.results)
-    );
+    dispatch(getRandomUser(gender, nat));
   }, [gender, nat]);
 
   return (

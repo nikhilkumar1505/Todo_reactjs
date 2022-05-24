@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
-import { RootContext } from "../../services/RootContext";
+import React from "react";
+import { useAppSelector } from "../../hooks";
 import "./style.css";
 
 function ProfileCard() {
-  const { profile } = useContext(RootContext);
+  const profile = useAppSelector((state) => state.randomUserReducer.user);
 
   return (
     <>

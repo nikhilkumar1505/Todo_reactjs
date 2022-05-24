@@ -11,3 +11,11 @@ select {
   border: 2px solid #cdcdcd;
   outline: none;
 }
+
+@media all and (max-width: 720px) {
+  option {
+    font-size: 2rem;
+    width: 4rem;
+    height: 5rem;
+  }
+}
