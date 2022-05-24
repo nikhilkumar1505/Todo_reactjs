@@ -1,0 +1,8 @@
+.radio-btn-label {
+  font-size: 1.6rem;
+  text-transform: capitalize;
+  margin-left: 1rem;
+}
+.radio-btn {
+  margin: 0.5rem 0;
+}

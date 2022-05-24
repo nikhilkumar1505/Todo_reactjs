@@ -6,23 +6,25 @@
   padding: 0;
 }
 .main {
-  width: 60%;
+  width: 95%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
-@media all and (max-width: 420px) {
-  body,
-  html {
-    font-size: 50%;
-    transition: all 0.2s ease-in-out;
-  }
+  padding-top: 2rem;
 }
 @media all and (min-width: 420px) and (max-width: 770px) {
   body,
   html {
     font-size: 56.25%;
     transition: all 0.2s ease-in-out;
+  }
+}
+
+@media all and (max-width: 420px) {
+  body,
+  html {
+    font-size: 40%;
+    transition: all 0.2s ease-in-out;
+    overflow-x: hidden;
   }
 }
