@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { RootContext } from "../../services/RootContext";
+import { RootContext } from "../../context/RootContext";
 import "./style.css";
 function Dropdown() {
   const countrycode = [
@@ -21,10 +21,13 @@ function Dropdown() {
     "TR",
     "US",
   ];
-  const { nat, setNat } = useContext(RootContext);
+  const {
+    state: { nat },
+    action: { changeNationality },
+  } = useContext(RootContext);
 
   const handleChange = (e: any) => {
-    setNat(e.target.value);
+    changeNationality(e.target.value);
   };
   return (
     <div style={{ marginTop: "1rem" }}>

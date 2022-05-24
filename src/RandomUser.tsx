@@ -1,15 +1,15 @@
 import React, { useContext, useEffect } from "react";
 import { RadioButtons, Dropdown, ProfileCard } from "./components";
-import { ApiService } from "./services/Api.services";
-import { RootContext } from "./services/RootContext";
+import { RootContext } from "./context/RootContext";
 
 function RandomUser() {
-  const { gender, nat, setProfile } = useContext(RootContext);
+  const {
+    state: { gender, nat },
+    action: { getUser },
+  } = useContext(RootContext);
 
   useEffect(() => {
-    ApiService.getDetails(gender, nat).then((res: any) =>
-      setProfile(res.results)
-    );
+    getUser(gender, nat);
   }, [gender, nat]);
 
   return (

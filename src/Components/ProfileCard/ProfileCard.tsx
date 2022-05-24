@@ -1,16 +1,18 @@
 import React, { useContext } from "react";
-import { RootContext } from "../../services/RootContext";
+import { RootContext } from "../../context/RootContext";
 import "./style.css";
 
 function ProfileCard() {
-  const { profile } = useContext(RootContext);
+  const {
+    state: { profile },
+  } = useContext(RootContext);
 
   return (
     <>
       {profile?.map((details: any, index: number) => {
         const { email, name, picture } = details;
         return (
-          <div className="profile-card">
+          <div className="profile-card" key={index}>
             <img
               src={picture?.thumbnail}
               alt="profile"

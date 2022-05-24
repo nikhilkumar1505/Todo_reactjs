@@ -1,13 +1,16 @@
 import React, { useContext } from "react";
-import { RootContext } from "../../services/RootContext";
+import { RootContext } from "../../context/RootContext";
 import "./style.css";
 
 function RadioButtons() {
   const genders = ["male", "female", "All"];
-  const { gender, setGender } = useContext(RootContext);
+  const {
+    state: { gender },
+    action: { changeGender },
+  } = useContext(RootContext);
 
   const handleGenders = (e: any) => {
-    setGender(e.target.value);
+    changeGender(e.target.value);
   };
 
   return (
