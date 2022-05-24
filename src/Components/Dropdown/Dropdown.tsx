@@ -31,7 +31,12 @@ function Dropdown() {
       <h1>Select Nationality:</h1>
       <select value={nat} onChange={handleChange}>
         {countrycode.map((code, id) => (
-          <option key={id} value={code} label={code} />
+          <option
+            data-testid={`option-${id}`}
+            key={id}
+            value={code}
+            label={code}
+          />
         ))}
       </select>
     </div>

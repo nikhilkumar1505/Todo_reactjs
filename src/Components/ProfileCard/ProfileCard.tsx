@@ -7,7 +7,7 @@ function ProfileCard() {
 
   return (
     <>
-      {profile?.map((details: any, index: number) => {
+      {profile.map((details: any, index: number) => {
         const { email, name, picture } = details;
         return (
           <div className="profile-card">
