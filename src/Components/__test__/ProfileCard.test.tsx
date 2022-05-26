@@ -4,6 +4,7 @@ import { ApiService } from "../../services/Api.services";
 import { rest } from "msw";
 import { setupServer } from "msw/node";
 import { apiConfig } from "../../network";
+import { RootContext } from "../../services/RootContext";
 
 const users = {
   results: [
@@ -38,6 +39,11 @@ afterAll(() => server.close());
 afterEach(() => server.resetHandlers());
 
 describe("testing block for Profile display componets", () => {
+  const results: any = {
+    profile: [],
+    setProfile: jest.fn(),
+  };
+
   it("should render without breaking", () => {
     render(<ProfileCard />);
   });
@@ -48,5 +54,13 @@ describe("testing block for Profile display componets", () => {
   });
   it("check for the name of user", async () => {
     const res = await ApiService.getDetails("male", "AU");
+    results.profile = res.results;
+    expect(screen.queryByText("brad.gibsson@exapmle.com")).not.toBeTruthy();
+    render(
+      <RootContext.Provider value={results}>
+        <ProfileCard />
+      </RootContext.Provider>
+    );
+    expect(screen.queryByText("brad.gibsson@exapmle.com")).toBeTruthy();
   });
 });
