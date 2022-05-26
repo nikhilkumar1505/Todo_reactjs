@@ -52,7 +52,7 @@ describe("testing block for Profile display componets", () => {
     const res = await ApiService.getDetails("male", "AU");
     expect(res).toStrictEqual(users);
   });
-  it("check for the name of user", async () => {
+  it("check for the user visible after the api call", async () => {
     const res = await ApiService.getDetails("male", "AU");
     results.profile = res.results;
     expect(screen.queryByText("brad.gibsson@exapmle.com")).not.toBeTruthy();
@@ -61,6 +61,7 @@ describe("testing block for Profile display componets", () => {
         <ProfileCard />
       </RootContext.Provider>
     );
-    expect(screen.queryByText("brad.gibsson@exapmle.com")).toBeTruthy();
+    expect(screen.queryByText("brad.gibsson@exapmle.com")).toBeVisible();
+    expect(screen.queryByText(/mr brad gibson/i)).toBeVisible();
   });
 });
